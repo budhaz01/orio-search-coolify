@@ -35,8 +35,6 @@ services:
     container_name: orio-search-api
     expose:
       - "8000"
-    volumes:
-      - ./config.yaml:/app/config.yaml:ro
     depends_on:
       searxng:
         condition: service_healthy
@@ -49,6 +47,12 @@ services:
       resources:
         limits:
           memory: 1G
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys;sys.exit(0 if urllib.request.urlopen('http://localhost:8000/healthz',timeout=3).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
 
   # CLIP image pre-filter for Aile Scape Game. Cuts the Qwen-VL
   # validate_image bill by ~50% (cheap CLIP cosine filters obvious
