@@ -1,17 +1,18 @@
 services:
   searxng:
-    image: searxng/searxng:latest
+    build:
+      context: ./searxng
+      dockerfile: Dockerfile
     container_name: orio-search-searxng
     expose:
       - "8080"
-    volumes:
-      - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/healthz"]
       interval: 30s
       timeout: 5s
-      retries: 3
+      retries: 5
+      start_period: 30s
 
   redis:
     image: redis:7-alpine

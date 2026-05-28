@@ -2,12 +2,21 @@ use_default_settings: true
 
 server:
   limiter: false
-  secret_key: "orio-search-secret-change-me"
+  secret_key: "orio-coolify-prod-key-9c7d2e1a4b8f6e3d5a0b1c2d3e4f5a6b"
+  bind_address: "0.0.0.0"
+  port: 8080
+  base_url: false
 
 search:
   formats:
     - html
     - json
+  safe_search: 0
+  autocomplete: ""
 
 general:
   enable_metrics: false
+  debug: false
+
+ui:
+  static_use_hash: true
