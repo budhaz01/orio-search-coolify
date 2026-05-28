@@ -1,0 +1,8 @@
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+sentence-transformers==3.2.1
+pillow==11.0.0
+httpx==0.27.2
+pydantic==2.9.2
+# torch is brought in transitively by sentence-transformers
+# numpy is brought in transitively

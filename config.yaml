@@ -70,7 +70,7 @@ cors:
   allow_origins: ["*"]
 
 llm:
-  enabled: true
+  enabled: false
   provider: "ollama"         # label for logs (ollama, openai, groq, etc.)
   base_url: "http://host.docker.internal:11434/v1"   # host Ollama with GPU (must end with /v1)
   api_key: "ollama"          # "ollama" for local, real key for cloud providers
