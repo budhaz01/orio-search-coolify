@@ -1,0 +1,12 @@
+{
+  "app": "orio",
+  "branch": "infra/deploy-agent",
+  "services": [
+    { "name": "api", "domain": "orio.dev.heezy.io", "port": 8000 },
+    { "name": "clip-filter", "domain": "orio-clip.dev.heezy.io", "port": 8002 }
+  ],
+  "databases": [],
+  "secrets": [],
+  "env": {},
+  "_note": "Internal redis + searxng live in this repo's docker-compose (ephemeral, no secrets). No external DB."
+}
