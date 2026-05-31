@@ -3,7 +3,6 @@ services:
     build:
       context: ./searxng
       dockerfile: Dockerfile
-    container_name: orio-search-searxng
     expose:
       - "8080"
     restart: unless-stopped
@@ -16,7 +15,6 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: orio-search-redis
     expose:
       - "6379"
     restart: unless-stopped
@@ -32,7 +30,6 @@ services:
 
   api:
     build: .
-    container_name: orio-search-api
     expose:
       - "8000"
     depends_on:
@@ -59,7 +56,6 @@ services:
   # non-place images before the LLM call).
   clip-filter:
     build: ./clip-filter
-    container_name: aile-clip-filter
     expose:
       - "8002"
     restart: unless-stopped
